@@ -2,9 +2,10 @@
   "name": "realtime-chat-app",
   "version": "1.0.0",
   "description": "chat app",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "start": "node index.js",
+    "dev":"node functions/server.js",
+    "start": "nodemon functions/server.js",
     "build": "netlify deploy --prod"
   },
   "author": "samihan",
