@@ -1,20 +1,25 @@
 const express = require('express');
 const app = express();
 const http = require('http').createServer(app);
-
-// Removed Socket.IO initialization from here
+const io = require('socket.io')(http);
 
 const PORT = process.env.PORT || 3000;
 
-http.listen(PORT, () => {
-    console.log('Listening on port ', PORT);
+http.listen(PORT,()=>{
+    console.log('Listening on port ',PORT);
 });
 
-app.use(express.static(__dirname + `/public/`));
 
-app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/public/index.html');
+app.use(express.static(__dirname+`/public/`))
+
+app.get('/',(req,res)=>{
+    res.sendFile(__dirname+'/public/index.html');
 });
 
-// Netlify doesn't support WebSocket connections directly in the main server file
-// Moved WebSocket logic to a serverless function (socket.js)
+io.on('connection',(socket)=>{
+    console.log('connected !');
+
+    socket.on('message',(msg)=>{
+        socket.broadcast.emit('message',msg);
+    })
+})
