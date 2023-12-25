@@ -1,4 +1,4 @@
-const socket = io();
+const socket = io('/');
 
 let name_;
 let textarea = document.querySelector('#textarea');
