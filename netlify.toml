@@ -1,9 +1,3 @@
 [build]
   command = "npm run build"  # Adjust this based on your build script
   publish = "public"
-
-[[redirects]]
-  from = "/"
-  to = "/"
-  status = 101
-  force = true
