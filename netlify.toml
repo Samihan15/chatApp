@@ -3,7 +3,7 @@
   publish = "public"
 
 [[redirects]]
-  from = "/socket.io/*"
-  to = "/.netlify/functions/socket/:splat"
+  from = "/"
+  to = "/"
   status = 101
   force = true
