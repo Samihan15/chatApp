@@ -1,9 +1,9 @@
 [build]
-    command = "npm run build"
-    publish = "public"
-    base = "/"
+  command = "npm run build"  # Adjust this based on your build script
+  publish = "public"
 
 [[redirects]]
-    from = "/*"
-    to = "/index.html"
-    status = 200
+  from = "/socket.io/*"
+  to = "/.netlify/functions/socket/:splat"
+  status = 101
+  force = true
